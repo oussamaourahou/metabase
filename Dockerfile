@@ -25,6 +25,7 @@ RUN git config --global --add safe.directory /home/node
 
 # install frontend dependencies
 #RUN yarn --frozen-lockfile
+RUN yarn cache clean --force
 RUN yarn install
 
 RUN INTERACTIVE=false CI=true MB_EDITION=$MB_EDITION bin/build.sh :version ${VERSION}
